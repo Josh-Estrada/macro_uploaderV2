@@ -68,11 +68,20 @@ class MainWindow(ctk.CTkFrame):
         file_path = filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv")])
         if file_path:
             try:
-                process_csv(file_path)
-                messagebox.showinfo("Success", "CSV file processed and macros uploaded successfully!")
+                success, failures = process_csv(file_path)
+                if failures:
+                    messagebox.showwarning("Upload Completed with Errors", f"CSV file processed with some failures. See log for details.")
+                else:
+                    messagebox.showinfo("Success", "CSV file processed and macros uploaded successfully!")
             except ValueError as e:
                 error_message = f"CSV validation errors:\n\n• {str(e).replace('\n', '\n• ')}"
                 messagebox.showerror("Error", error_message)
+            except PermissionError as e:
+                messagebox.showerror("Permission Error", f"Error: {e}")
+            except TimeoutError as e:
+                messagebox.showerror("Timeout Error", f"Error: {e}")
+            except ConnectionError as e:
+                messagebox.showerror("Connection Error", f"Error: {e}")
             except Exception as e:
                 messagebox.showerror("Error", f"Error processing file: {e}")
 

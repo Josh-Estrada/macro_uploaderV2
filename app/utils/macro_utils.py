@@ -1,14 +1,23 @@
-# /Users/joshestrada/Desktop/Python Projects/macro uploader tkinter/app/utils/macro_utils.py
+import logging
 import requests
 from lxml import etree
+
+# Set up logging
+logging.basicConfig(filename='macro_upload.log', level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 def upload_macro(endpoint_ip, username, password, macro_name, js_file_path):
     try:
         with open(js_file_path, 'r') as f:
             js_code = f.read()
-    except FileNotFoundError as e:
-        print(f"Error: File {js_file_path} not found")
-        return
+    except FileNotFoundError:
+        error_message = f"Macro file '{js_file_path}' not found."
+        logging.error(error_message)
+        raise FileNotFoundError(error_message)
+    except Exception as e:
+        error_message = f"Error reading macro file '{js_file_path}': {e}"
+        logging.error(error_message)
+        raise Exception(error_message)
 
     tags = ['Macros', 'Macro', 'Save']
     macro_params = {'name': macro_name,
@@ -28,17 +37,28 @@ def upload_macro(endpoint_ip, username, password, macro_name, js_file_path):
 
     try:
         response = requests.post(f'https://{endpoint_ip}/putxml', auth=(username, password), data=data, headers={'Content-Type': 'application/xml'}, verify=False, timeout=10)
-        if response.status_code == 200:
-            print(f"{macro_name} saved successfully for: {endpoint_ip}")
-            enable_macro(endpoint_ip, username, password, macro_name)
-        elif response.status_code == 401:
-            print(f"401 error. Connection for: {endpoint_ip} unauthorized. Please check your credentials and try again.")
+        response.raise_for_status()
+        success_message = f"{macro_name} saved successfully for: {endpoint_ip}"
+        logging.info(success_message)
+        print(success_message)
+        enable_macro(endpoint_ip, username, password, macro_name)
+    except requests.exceptions.HTTPError as e:
+        if response.status_code == 401:
+            error_message = f"Unauthorized access to {endpoint_ip}. Please check your credentials."
+            logging.error(error_message)
+            raise PermissionError(error_message)
         else:
-            print(f"Error saving {macro_name} to: {endpoint_ip} {response.text}")
+            error_message = f"HTTP error occurred: {e}"
+            logging.error(error_message)
+            raise ConnectionError(error_message)
     except requests.exceptions.Timeout:
-        print(f"Timed out waiting for a response from {endpoint_ip}.")
+        error_message = f"Request to {endpoint_ip} timed out."
+        logging.error(error_message)
+        raise TimeoutError(error_message)
     except requests.exceptions.RequestException as e:
-        print(f"Error sending request: {e}")
+        error_message = f"Error connecting to {endpoint_ip}: {e}"
+        logging.error(error_message)
+        raise ConnectionError(error_message)
 
 def enable_macro(endpoint_ip, username, password, macro_name):
     url = f"https://{endpoint_ip}/putxml"
@@ -53,11 +73,20 @@ def enable_macro(endpoint_ip, username, password, macro_name):
     name.text = macro_name
     payload = etree.tostring(root, encoding='unicode')
 
-    response = requests.post(url, auth=auth, headers=headers, data=payload, verify=False)
-    if response.status_code == 200:
-        print(f"{macro_name} enabled successfully for {endpoint_ip}")
-    else:
-        print(f"Error enabling {macro_name} for {endpoint_ip}. Status code: {response.status_code}")
+    try:
+        response = requests.post(url, auth=auth, headers=headers, data=payload, verify=False)
+        response.raise_for_status()
+        success_message = f"{macro_name} enabled successfully for {endpoint_ip}"
+        logging.info(success_message)
+        print(success_message)
+    except requests.exceptions.HTTPError as e:
+        error_message = f"HTTP error occurred while enabling macro: {e}"
+        logging.error(error_message)
+        raise ConnectionError(error_message)
+    except requests.exceptions.RequestException as e:
+        error_message = f"Error enabling macro: {e}"
+        logging.error(error_message)
+        raise ConnectionError(error_message)
 
     root = etree.Element("Command")
     macros = etree.SubElement(root, "Macros")
@@ -66,8 +95,17 @@ def enable_macro(endpoint_ip, username, password, macro_name):
     restart.attrib["command"] = "True"
     payload2 = etree.tostring(root)
 
-    response = requests.post(url, data=payload2, headers=headers, auth=auth, verify=False)
-    if response.status_code == 200:
-        print(f"Macro runtime restarted successfully for {endpoint_ip}")
-    else:
-        print(f"Error restarting Macro runtime for {endpoint_ip}. Status code: {response.status_code}")
+    try:
+        response = requests.post(url, data=payload2, headers=headers, auth=auth, verify=False)
+        response.raise_for_status()
+        success_message = f"Macro runtime restarted successfully for {endpoint_ip}"
+        logging.info(success_message)
+        print(success_message)
+    except requests.exceptions.HTTPError as e:
+        error_message = f"HTTP error occurred while restarting macro runtime: {e}"
+        logging.error(error_message)
+        raise ConnectionError(error_message)
+    except requests.exceptions.RequestException as e:
+        error_message = f"Error restarting macro runtime: {e}"
+        logging.error(error_message)
+        raise ConnectionError(error_message)
