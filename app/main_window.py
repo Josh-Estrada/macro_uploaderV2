@@ -68,7 +68,7 @@ class MainWindow(ctk.CTkFrame):
         if file_path:
             try:
                 process_csv(file_path)
-                messagebox.showinfo("Success", "CSV file processed successfully!")
+                messagebox.showinfo("Success", "CSV file processed and macros uploaded successfully!")
             except ValueError as e:
                 error_message = f"CSV validation errors:\n\n• {str(e).replace('\n', '\n• ')}"
                 messagebox.showerror("Error", error_message)
