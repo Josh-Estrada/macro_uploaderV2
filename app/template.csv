@@ -1,3 +1,0 @@
-ip_address,username,password,macro_file_path
-192.168.1.1,admin,password,/path/to/macro1.js
-192.168.1.2,admin,password,/path/to/macro2.js

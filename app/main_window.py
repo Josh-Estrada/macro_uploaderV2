@@ -1,7 +1,8 @@
 import os
 import customtkinter as ctk
 from tkinter import filedialog, messagebox
-from app.utils import validate_csv, process_csv, download_template
+from app.utils.csv_utils import validate_csv, process_csv
+from app.utils.template_utils import download_template
 from PIL import Image
 
 class MainWindow(ctk.CTkFrame):
