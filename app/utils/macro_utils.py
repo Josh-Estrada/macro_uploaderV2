@@ -2,9 +2,7 @@ import logging
 import requests
 from lxml import etree
 
-# Set up logging
-logging.basicConfig(filename='macro_upload.log', level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+macro_logger = logging.getLogger('macro')
 
 def upload_macro(endpoint_ip, username, password, macro_name, js_file_path):
     try:
@@ -12,11 +10,11 @@ def upload_macro(endpoint_ip, username, password, macro_name, js_file_path):
             js_code = f.read()
     except FileNotFoundError:
         error_message = f"Macro file '{js_file_path}' not found."
-        logging.error(error_message)
+        macro_logger.error(error_message)
         raise FileNotFoundError(error_message)
     except Exception as e:
         error_message = f"Error reading macro file '{js_file_path}': {e}"
-        logging.error(error_message)
+        macro_logger.error(error_message)
         raise Exception(error_message)
 
     tags = ['Macros', 'Macro', 'Save']
@@ -39,25 +37,25 @@ def upload_macro(endpoint_ip, username, password, macro_name, js_file_path):
         response = requests.post(f'https://{endpoint_ip}/putxml', auth=(username, password), data=data, headers={'Content-Type': 'application/xml'}, verify=False, timeout=10)
         response.raise_for_status()
         success_message = f"{macro_name} saved successfully for: {endpoint_ip}"
-        logging.info(success_message)
+        macro_logger.info(success_message)
         print(success_message)
         enable_macro(endpoint_ip, username, password, macro_name)
     except requests.exceptions.HTTPError as e:
         if response.status_code == 401:
             error_message = f"Unauthorized access to {endpoint_ip}. Please check your credentials."
-            logging.error(error_message)
+            macro_logger.error(error_message)
             raise PermissionError(error_message)
         else:
             error_message = f"HTTP error occurred: {e}"
-            logging.error(error_message)
+            macro_logger.error(error_message)
             raise ConnectionError(error_message)
     except requests.exceptions.Timeout:
         error_message = f"Request to {endpoint_ip} timed out."
-        logging.error(error_message)
+        macro_logger.error(error_message)
         raise TimeoutError(error_message)
     except requests.exceptions.RequestException as e:
         error_message = f"Error connecting to {endpoint_ip}: {e}"
-        logging.error(error_message)
+        macro_logger.error(error_message)
         raise ConnectionError(error_message)
 
 def enable_macro(endpoint_ip, username, password, macro_name):
@@ -77,15 +75,15 @@ def enable_macro(endpoint_ip, username, password, macro_name):
         response = requests.post(url, auth=auth, headers=headers, data=payload, verify=False)
         response.raise_for_status()
         success_message = f"{macro_name} enabled successfully for {endpoint_ip}"
-        logging.info(success_message)
+        macro_logger.info(success_message)
         print(success_message)
     except requests.exceptions.HTTPError as e:
         error_message = f"HTTP error occurred while enabling macro: {e}"
-        logging.error(error_message)
+        macro_logger.error(error_message)
         raise ConnectionError(error_message)
     except requests.exceptions.RequestException as e:
         error_message = f"Error enabling macro: {e}"
-        logging.error(error_message)
+        macro_logger.error(error_message)
         raise ConnectionError(error_message)
 
     root = etree.Element("Command")
@@ -99,13 +97,13 @@ def enable_macro(endpoint_ip, username, password, macro_name):
         response = requests.post(url, data=payload2, headers=headers, auth=auth, verify=False)
         response.raise_for_status()
         success_message = f"Macro runtime restarted successfully for {endpoint_ip}"
-        logging.info(success_message)
+        macro_logger.info(success_message)
         print(success_message)
     except requests.exceptions.HTTPError as e:
         error_message = f"HTTP error occurred while restarting macro runtime: {e}"
-        logging.error(error_message)
+        macro_logger.error(error_message)
         raise ConnectionError(error_message)
     except requests.exceptions.RequestException as e:
         error_message = f"Error restarting macro runtime: {e}"
-        logging.error(error_message)
+        macro_logger.error(error_message)
         raise ConnectionError(error_message)

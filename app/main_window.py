@@ -31,6 +31,9 @@ class MainWindow(ctk.CTkFrame):
         self.upload_button = ctk.CTkButton(self.button_frame, text="Upload CSV", command=self.upload_csv, fg_color="#007BFF", hover_color="#0056b3", border_width=1, corner_radius=5)
         self.upload_button.grid(row=0, column=2, padx=10, pady=10)
 
+        self.download_log_button = ctk.CTkButton(self.button_frame, text="Download Log File", command=self.download_log, fg_color="#007BFF", hover_color="#0056b3", border_width=1, corner_radius=5)
+        self.download_log_button.grid(row=0, column=3, padx=10, pady=10)
+
         # Load and place the logo image
         self.logo_image_path = os.path.join(os.path.dirname(__file__), 'resources', 'logo.png')
         self.load_logo_image()
@@ -84,6 +87,24 @@ class MainWindow(ctk.CTkFrame):
                 messagebox.showerror("Connection Error", f"Error: {e}")
             except Exception as e:
                 messagebox.showerror("Error", f"Error processing file: {e}")
+
+    def download_log(self):
+        log_file_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'consolidated.log')
+        if not os.path.exists(log_file_path):
+            messagebox.showerror("Error", "Log file not found.")
+            return
+        
+        with open(log_file_path, 'r') as log_file:
+            log_data = log_file.read()
+
+        save_path = filedialog.asksaveasfilename(defaultextension=".log", filetypes=[("Log Files", "*.log")], initialfile="consolidated.log")
+        if save_path:
+            try:
+                with open(save_path, 'w') as output_file:
+                    output_file.write(log_data)
+                messagebox.showinfo("Download Success", f"Log file downloaded successfully to {save_path}!")
+            except Exception as e:
+                messagebox.showerror("Error", f"Error downloading log file: {e}")
 
 if __name__ == "__main__":
     from app.styles import apply_styles

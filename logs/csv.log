@@ -1,0 +1,4 @@
+2024-06-21 16:24:19,378 - csv - ERROR - Macro file not found at path '/path/to/macro1.js' in row 1
+2024-06-21 16:24:19,379 - csv - ERROR - Macro file not found at path '/path/to/macro2.js' in row 2
+2024-06-21 16:24:19,379 - csv - ERROR - Macro file not found at path '/path/to/macro3.js' in row 3
+2024-06-21 16:24:36,866 - csv - ERROR - Error processing row for 192.168.1.111: Unauthorized access to 192.168.1.111. Please check your credentials.

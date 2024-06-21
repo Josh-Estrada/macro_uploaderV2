@@ -1,0 +1,35 @@
+2024-06-21 16:23:59,175 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2024-06-21 16:23:59,176 - PIL.PngImagePlugin - DEBUG - STREAM b'cHRM' 41 32
+2024-06-21 16:23:59,176 - PIL.PngImagePlugin - DEBUG - STREAM b'bKGD' 85 6
+2024-06-21 16:23:59,176 - PIL.PngImagePlugin - DEBUG - b'bKGD' 85 6 (unknown)
+2024-06-21 16:23:59,176 - PIL.PngImagePlugin - DEBUG - STREAM b'orNT' 103 1
+2024-06-21 16:23:59,176 - PIL.PngImagePlugin - DEBUG - b'orNT' 103 1 (unknown)
+2024-06-21 16:23:59,176 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 116 32768
+2024-06-21 16:23:59,211 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 521521 37
+2024-06-21 16:23:59,211 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 521570 37
+2024-06-21 16:23:59,211 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 521619 40
+2024-06-21 16:24:19,378 - csv - ERROR - Macro file not found at path '/path/to/macro1.js' in row 1
+2024-06-21 16:24:19,379 - csv - ERROR - Macro file not found at path '/path/to/macro2.js' in row 2
+2024-06-21 16:24:19,379 - csv - ERROR - Macro file not found at path '/path/to/macro3.js' in row 3
+2024-06-21 16:24:30,762 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): 192.168.1.111:443
+2024-06-21 16:24:31,233 - urllib3.connectionpool - DEBUG - https://192.168.1.111:443 "POST /putxml HTTP/1.1" 200 74
+2024-06-21 16:24:31,234 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 16:24:31,236 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): 192.168.1.111:443
+2024-06-21 16:24:32,052 - urllib3.connectionpool - DEBUG - https://192.168.1.111:443 "POST /putxml HTTP/1.1" 200 78
+2024-06-21 16:24:32,053 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 16:24:32,054 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): 192.168.1.111:443
+2024-06-21 16:24:32,976 - urllib3.connectionpool - DEBUG - https://192.168.1.111:443 "POST /putxml HTTP/1.1" 200 79
+2024-06-21 16:24:32,977 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 16:24:32,979 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): 192.168.1.111:443
+2024-06-21 16:24:36,865 - urllib3.connectionpool - DEBUG - https://192.168.1.111:443 "POST /putxml HTTP/1.1" 401 358
+2024-06-21 16:24:36,866 - macro - ERROR - Unauthorized access to 192.168.1.111. Please check your credentials.
+2024-06-21 16:24:36,866 - csv - ERROR - Error processing row for 192.168.1.111: Unauthorized access to 192.168.1.111. Please check your credentials.
+2024-06-21 16:24:36,867 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): 192.168.1.111:443
+2024-06-21 16:24:37,011 - urllib3.connectionpool - DEBUG - https://192.168.1.111:443 "POST /putxml HTTP/1.1" 200 74
+2024-06-21 16:24:37,011 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 16:24:37,013 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): 192.168.1.111:443
+2024-06-21 16:24:38,023 - urllib3.connectionpool - DEBUG - https://192.168.1.111:443 "POST /putxml HTTP/1.1" 200 78
+2024-06-21 16:24:38,024 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 16:24:38,025 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): 192.168.1.111:443
+2024-06-21 16:24:39,117 - urllib3.connectionpool - DEBUG - https://192.168.1.111:443 "POST /putxml HTTP/1.1" 200 79
+2024-06-21 16:24:39,118 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
