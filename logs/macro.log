@@ -1,0 +1,33 @@
+2024-06-21 22:16:34,401 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:16:35,095 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:16:36,143 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 22:16:40,033 - macro - ERROR - 401 error. Connection for: 192.168.1.111 unauthorized. Please check your credentials and try again.
+2024-06-21 22:16:40,194 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:16:41,262 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:16:42,287 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 22:16:52,302 - macro - WARNING - Timed out waiting for a response from 192.168.1.112.
+2024-06-21 22:16:52,478 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:16:53,473 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:16:54,576 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 22:19:53,969 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:19:54,967 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:19:55,971 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 22:19:59,917 - macro - ERROR - 401 error. Connection for: 192.168.1.111 unauthorized. Please check your credentials and try again.
+2024-06-21 22:20:00,069 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:20:01,146 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:20:02,173 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 22:20:12,187 - macro - WARNING - Timed out waiting for a response from 192.168.1.112.
+2024-06-21 22:20:12,363 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:20:13,364 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:20:14,460 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 22:25:18,793 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:25:19,426 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:25:20,531 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 22:25:24,423 - macro - ERROR - 401 error. Connection for: 192.168.1.111 unauthorized. Please check your credentials and try again.
+2024-06-21 22:25:24,596 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:25:25,651 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:25:26,602 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111
+2024-06-21 22:25:36,616 - macro - WARNING - Timed out waiting for a response from 192.168.1.112.
+2024-06-21 22:25:36,797 - macro - INFO - otj-macro-settings saved successfully for: 192.168.1.111
+2024-06-21 22:25:37,837 - macro - INFO - otj-macro-settings enabled successfully for 192.168.1.111
+2024-06-21 22:25:38,862 - macro - INFO - Macro runtime restarted successfully for 192.168.1.111

@@ -1,0 +1,27 @@
+2024-06-21 22:16:27,296 - csv - ERROR - Row 1: Macro file not found at path '/path/to/macro1.js'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 2: Macro file not found at path '/path/to/macro2.js'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 3: Missing value in column 'username'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 3: Macro file not found at path '/path/to/macro3.js'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 4: Missing value in column 'password'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 4: Macro file not found at path '/path/to/macro4.js'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 5: Macro file not found at path '/path/to/nonexistent_macro.js'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 6: Missing value in column 'ip_address'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 6: Missing value in column 'username'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 6: Macro file not found at path '/path/to/macro6.js'
+2024-06-21 22:16:27,296 - csv - ERROR - Row 7: Missing value in column 'macro_file_path'
+2024-06-21 22:16:27,297 - csv - ERROR - Row 7: Macro file not found at path ''
+2024-06-21 22:16:36,145 - csv - INFO - Row 1: otj-macro-settings uploaded successfully to 192.168.1.111
+2024-06-21 22:16:40,033 - csv - ERROR - Row 2: Error processing 192.168.1.111: 401 error. Connection for: 192.168.1.111 unauthorized. Please check your credentials and try again.
+2024-06-21 22:16:42,288 - csv - INFO - Row 3: otj-macro-settings uploaded successfully to 192.168.1.111
+2024-06-21 22:16:52,304 - csv - ERROR - Row 4: Error processing 192.168.1.112: Timed out waiting for a response from 192.168.1.112.
+2024-06-21 22:16:54,577 - csv - INFO - Row 5: otj-macro-settings uploaded successfully to 192.168.1.111
+2024-06-21 22:19:55,972 - csv - INFO - Row 1: otj-macro-settings uploaded successfully to 192.168.1.111
+2024-06-21 22:19:59,917 - csv - ERROR - Row 2: Error processing 192.168.1.111: 401 error. Connection for: 192.168.1.111 unauthorized. Please check your credentials and try again.
+2024-06-21 22:20:02,174 - csv - INFO - Row 3: otj-macro-settings uploaded successfully to 192.168.1.111
+2024-06-21 22:20:12,187 - csv - ERROR - Row 4: Error processing 192.168.1.112: Timed out waiting for a response from 192.168.1.112.
+2024-06-21 22:20:14,460 - csv - INFO - Row 5: otj-macro-settings uploaded successfully to 192.168.1.111
+2024-06-21 22:25:20,532 - csv - INFO - Row 1: otj-macro-settings uploaded successfully to 192.168.1.111
+2024-06-21 22:25:24,423 - csv - ERROR - Row 2: Error processing 192.168.1.111: 401 error. Connection for: 192.168.1.111 unauthorized. Please check your credentials and try again.
+2024-06-21 22:25:26,602 - csv - INFO - Row 3: otj-macro-settings uploaded successfully to 192.168.1.111
+2024-06-21 22:25:36,616 - csv - ERROR - Row 4: Error processing 192.168.1.112: Timed out waiting for a response from 192.168.1.112.
+2024-06-21 22:25:38,862 - csv - INFO - Row 5: otj-macro-settings uploaded successfully to 192.168.1.111
