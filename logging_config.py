@@ -1,6 +1,7 @@
 import logging
 import logging.config
 import os
+from app.utils.log_filter import RelevantLogFilter
 
 log_directory = 'logs'
 if not os.path.exists(log_directory):
@@ -14,29 +15,38 @@ LOGGING_CONFIG = {
             'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         },
     },
+    'filters': {
+        'relevant': {
+            '()': RelevantLogFilter,
+        },
+    },
     'handlers': {
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'standard',
+            'filters': ['relevant'],
         },
         'file_macro': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'standard',
             'filename': os.path.join(log_directory, 'macro.log'),
+            'filters': ['relevant'],
         },
         'file_csv': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'standard',
             'filename': os.path.join(log_directory, 'csv.log'),
+            'filters': ['relevant'],
         },
         'file_consolidated': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'standard',
             'filename': os.path.join(log_directory, 'consolidated.log'),
+            'filters': ['relevant'],
         },
     },
     'loggers': {
